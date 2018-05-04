@@ -1,0 +1,9 @@
+<launch>
+    <arg name="camera_id" default="0" />
+
+    <node name="camera" pkg="cv_camera" type="cv_camera_node" args="_device_id:=$(arg camera_id)" respawn="false" output="screen" />
+    <node name="rviz" pkg="rviz" type="rviz" />
+    <node name="hough" pkg="demand" type="computer_vision.py" output="screen" />
+    <node name="resizer" pkg="demand" type="resizer.py" output="screen" />
+    <node name="observer" pkg="demand" type="observer.py" output="screen" />
+</launch>
